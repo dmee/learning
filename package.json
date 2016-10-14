@@ -1,0 +1,22 @@
+{
+  "name": "learning-vue",
+  "version": "1.0.0",
+  "description": "this is a demo when I was learning vuejs",
+  "main": "app.js",
+  "scripts": {
+    "server": "http-server -a 0.0.0.0 -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmee/learning-vue.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "niki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmee/learning-vue/issues"
+  },
+  "homepage": "https://github.com/dmee/learning-vue#readme"
+}

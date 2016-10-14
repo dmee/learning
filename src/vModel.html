@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <h1>v-model</h1>
+    <div id="app">
+        <p>{{message}}</p>
+        <p>
+            <input type="text" v-model="message" />
+        </p>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello World...'
+        }
+    });
+    </script>
+</body>
+
+</html>
