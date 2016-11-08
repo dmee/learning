@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <h1>v-if</h1>
+    <div id="app">
+        <div>
+            <p v-if="isLogin">已登录</p>
+            <p v-else>未登录</p>
+        </div>
+        <div v-if="hasName">姓名：{{name}}</div>
+        <div v-if="hasAge">年龄：{{age}}</div>
+        <div v-if="!hasAge">年龄：***</div>
+        <div v-if="hasSex">性别：{{sex}}</div>
+        <template v-if="isLogin">
+            <div>{{phone}}</div>
+            <div>{{address}}</div>
+        </template>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            isLogin: false,
+            name: 'niki',
+            age: 24,
+            sex: 'male',
+            phone: '18888888888',
+            address: 'China',
+            hasName: true,
+            hasAge: false,
+            hasSex: true
+        }
+    });
+    </script>
+</body>
+
+</html>

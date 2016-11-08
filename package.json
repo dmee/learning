@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/dmee/learning-vue/issues"
   },
-  "homepage": "https://github.com/dmee/learning-vue#readme"
+  "homepage": "https://github.com/dmee/learning-vue#readme",
+  "devDependencies": {}
 }

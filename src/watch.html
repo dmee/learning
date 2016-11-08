@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>$watch</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <h1>$watch</h1>
+    <div id="app">
+        <input type="text" v-model="sum" />
+        <div>{{amount}}</div>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            sum: 0,
+            price: 100,
+            amount: 0
+        }
+    });
+    vm.$watch('sum', function(newVal, oldVal) {
+        this.amount = this.price * newVal;
+    });
+    </script>
+</body>
+
+</html>

@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <title>v-model</title>
     <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+    <style type="text/css">
+    .p-helloWorld {
+        color: #f00;
+    }
+    </style>
 </head>
 
 <body>
     <h1>v-model</h1>
     <div id="app">
-        <p>{{message}}</p>
+        <p class="p-{{msgClass}}">属性（vue2中已经取消，使用v-bind）</p>
+        <p>双向绑定(过滤器，首字母大写)：{{ message | capitalize}}</p>
+        <p>双向绑定：{{ message }}</p>
+        <p>单向绑定（vue2中已经取消，请添加v-once）：{{* message }}</p>
+        <p>纯文本：{{ msg_html }}</p>
+        <p>HTML标签（vue2中已经取消，使用v-html）：{{{ msg_html }}}</p>
         <p>
             <input type="text" v-model="message" />
         </p>
@@ -22,7 +32,16 @@
     new Vue({
         el: '#app',
         data: {
-            message: 'Hello World...'
+            msgClass: 'helloWorld',
+            message: 'hello world',
+            msg_html: '<div>Hello World</div>'
+        },
+        filters: {
+            capitalize: function(value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
         }
     });
     </script>

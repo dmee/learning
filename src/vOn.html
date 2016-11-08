@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-on</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <h1>v-on</h1>
+    <div id="app">
+        <input type="text" v-model="tipContent" v-on:keyup.enter="showTip" placeholder="请输入提示内容..." />
+        <input type="text" v-model="tipContent" @keyup.enter="showTip" placeholder="请输入提示内容..." />
+        <a href="javascript:void(0);" v-on:click="showTip($event)">提示1</a>
+        <a href="javascript:void(0);" @click="showTip($event)">提示2</a>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            tipContent: ''
+        },
+        methods: {
+            showTip: function(e) {
+                alert(this.tipContent);
+                console.info(e.target);
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

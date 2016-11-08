@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+    <style type="text/css">
+    .expand-transition {
+        transition: all .3s ease;
+        height: 300px;
+        padding: 10px;
+        background-color: #eee;
+        overflow: hidden;
+    }
+    
+    .expand-enter,
+    .expand-leave {
+        height: 0;
+        padding: 0 10px;
+        opacity: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>transition</h1>
+    <div id="app">
+        <a href="javascript:void(0);" @click="signIn">Sign In</a>
+        <div v-if="isLogin" transition="expand">
+            <h1>{{username}}</h1>
+            <h1>{{password}}</h1>
+            <a href="javascript:void(0);" @click="exit">exit</a>
+        </div>
+        <div class="toLists">
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    Vue.transition('expand', {
+
+        beforeEnter: function(el) {
+            console.info('beforeEnter：' + el.textContent);
+        },
+        enter: function(el) {
+            console.info('enter：' + el.textContent);
+        },
+        afterEnter: function(el) {
+            console.info('afterEnter：' + el.textContent);
+        },
+        enterCancelled: function(el) {
+        },
+
+        beforeLeave: function(el) {
+           console.info('beforeLeave:' + el.textContent);
+        },
+        leave: function(el) {
+            el.textContent = '';
+        },
+        afterLeave: function(el) {
+            console.info('afterLeave：' + el.textContent);
+        },
+        leaveCancelled: function(el) {
+
+        }
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isLogin: false,
+            username: 'niki',
+            password: '123456'
+        },
+        methods: {
+            signIn: function() {
+                this.isLogin = true;
+            },
+            exit: function() {
+                this.isLogin = false;
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

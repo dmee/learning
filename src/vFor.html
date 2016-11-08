@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <link rel="stylesheet" type="text/css" href="../plugins/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <h1>v-for</h1>
+    <div id="app">
+        <h1>TODOS - value in Array</h1>
+        <ul>
+            <li v-for="todo in toDos">
+                <a href="">{{$index + 1}}、{{todo.title}}</a>
+            </li>
+        </ul>
+        <h1>TODOS - value of Array</h1>
+        <ul>
+            <li v-for="todo of toDos">
+                <a href="">{{$index + 1}}、{{todo.title}}</a>
+            </li>
+        </ul>
+        <h1>TODOS - (key,value) in Array</h1>
+        <ul>
+            <li v-for="(key, value) in toDos">
+                <a href="">{{key + 1}}、{{value.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            toDos: [{
+                title: '吃饭'
+            }, {
+                title: '睡觉'
+            }, {
+                title: '洗衣'
+            }, {
+                title: '打扫'
+            }, {
+                title: '洗澡'
+            }]
+        }
+    });
+    </script>
+</body>
+
+</html>

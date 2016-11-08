@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Router</title>
+    <link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/dist/css/bootstrap.min.css">
+    <style type="text/css">
+    .router-link-active {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="header">
+            <div class="top-nav">
+                <router-link to="/index">首页</router-link>
+                <router-link :to="{path:'/index'}">首页</router-link>
+                <router-link to="/article">文章</router-link>
+                <router-link :to="{path:'/article'}">文章</router-link>
+            </div>
+        </div>
+        <router-view></router-view>
+    </div>
+    <script type="text/javascript" src="../../plugins/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../../plugins/vue-router/dist/vue-router.min.js"></script>
+    <script type="text/javascript">
+    var indexCompt = Vue.extend({
+            template: '<div id="index-page">首页内容:{{content}}</div>',
+            data: function() {
+                return {
+                    content: '这里是首页的内容'
+                };
+            }
+        }),
+        articleCompt = Vue.extend({
+            template: '<div id="article-page">文章内容:</div>',
+            data: function() {
+                return {
+                    content: '这里是文章的内容'
+                };
+            }
+        });
+
+    var router = new VueRouter({
+        routes: [{
+            path: '/index',
+            component: indexCompt
+        }, {
+            path: '/article',
+            component: articleCompt
+        }]
+    });
+
+    var vm = new Vue({
+        router: router
+    }).$mount('#app');
+    </script>
+</body>
+
+</html>
